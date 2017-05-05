@@ -4,11 +4,11 @@
 
 var switchToRGB = true;
 var currentColorMode;
-const classDocument = app.charIDToTypeID('Dcmn');
-const classProperty = app.charIDToTypeID('Prpr');
-const typeOrdinal = app.charIDToTypeID('Ordn');
-const enumTarget = app.charIDToTypeID('Trgt');
-const idNS = stringIDToTypeID("sendDocumentInfoToNetworkClient");
+var classDocument = app.charIDToTypeID('Dcmn');
+var classProperty = app.charIDToTypeID('Prpr');
+var typeOrdinal = app.charIDToTypeID('Ordn');
+var enumTarget = app.charIDToTypeID('Trgt');
+var idNS = stringIDToTypeID("sendDocumentInfoToNetworkClient");
 
 function changeColorMode(mode) {
     // Add the "Mode" suffix if it's missing

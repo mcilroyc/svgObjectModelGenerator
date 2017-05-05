@@ -10,7 +10,7 @@ var currentLayer,
 
 // The built-in "app.path" is broken on the Mac, so we roll our own.
 function getPSAppPath() {
-    const kexecutablePathStr = stringIDToTypeID("executablePath");
+    var kexecutablePathStr = stringIDToTypeID("executablePath");
 
     var desc = new ActionDescriptor();
     var ref = new ActionReference();
@@ -25,9 +25,9 @@ function getPSAppPath() {
 
 function setLayerSVGOffset(x,y, layerId) {
     
-    const klayerSVGcoordinateOffset = app.stringIDToTypeID("layerSVGcoordinateOffset");
-    const keyX = app.charIDToTypeID('X   ');
-    const keyY = app.charIDToTypeID('Y   ');
+    var klayerSVGcoordinateOffset = app.stringIDToTypeID("layerSVGcoordinateOffset");
+    var keyX = app.charIDToTypeID('X   ');
+    var keyY = app.charIDToTypeID('Y   ');
 
     // The layer referenced doesn't actually matter; it just needs to 
     // reference *a* layer so it vectors into ULayerElement.
