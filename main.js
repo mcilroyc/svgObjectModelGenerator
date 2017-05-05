@@ -34,7 +34,7 @@
     function printDebug(doc) {
         var psd = stringify(doc);
 
-        _G.evaluateJSXFile(__dirname + "/jsx/copy.jsx", { clipboard: psd });
+        _G.evaluateJSXFileSharedSafe(__dirname + "/jsx/copy.jsx", { clipboard: psd });
     }
 
     function error(err) {
@@ -79,7 +79,7 @@
         if (event.generatorMenuChanged.name === MENU_GENERATOR_DOM ||
             event.generatorMenuChanged.name === MENU_GENERATOR_SUBDOM) {
 
-            _G.evaluateJSXFile(__dirname + "/jsx/changeColorMode.jsx", {}).then(function (origMode) {
+            _G.evaluateJSXFileSharedSafe(__dirname + "/jsx/changeColorMode.jsx", {}).then(function (origMode) {
                 if (typeof origMode === "string") {
                     origMode = JSON.parse(origMode);
                 }
@@ -102,7 +102,7 @@
                         });
                     },
                     error);
-                _G.evaluateJSXFile(__dirname + "/jsx/changeColorMode.jsx", { colorMode: origMode.colorMode });
+                _G.evaluateJSXFileSharedSafe(__dirname + "/jsx/changeColorMode.jsx", { colorMode: origMode.colorMode });
             });
         }
     }
@@ -141,7 +141,7 @@
             } else {
                 cacheInfo._lastDocInfoPromise = docInfoDeferred.promise;
 
-                generator.evaluateJSXFile(__dirname + "/jsx/normalizeDoc.jsx", {}).then(function (origMode) {
+                generator.evaluateJSXFileSharedSafe(__dirname + "/jsx/normalizeDoc.jsx", {}).then(function (origMode) {
                     if (typeof origMode === "string") {
                         origMode = JSON.parse(origMode);
                     }
@@ -152,7 +152,7 @@
                     }, function (err) {
                         docInfoDeferred.reject(err);
                     }).finally(function () {
-                        generator.evaluateJSXFile(__dirname + "/jsx/normalizeDoc.jsx", { historyPos: origMode.historyPos, colorMode: origMode.colorMode });
+                        generator.evaluateJSXFileSharedSafe(__dirname + "/jsx/normalizeDoc.jsx", { historyPos: origMode.historyPos, colorMode: origMode.colorMode });
                     });
                 });
                 return cacheInfo._lastDocInfoPromise;
@@ -191,7 +191,7 @@
 
         isArtboard = params.isArtboard;
 
-        generator.evaluateJSXString("app.activeDocument.id").then(function (activeDocId) {
+        generator.evaluateJSXStringSharedSafe("app.activeDocument.id").then(function (activeDocId) {
             if (docId !== activeDocId) {
                 deferedResult.reject("svgOMG only works on the active document");
             } else {

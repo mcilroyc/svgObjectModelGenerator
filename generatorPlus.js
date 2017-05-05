@@ -296,7 +296,7 @@
                 });
                 jsxPatch.push(jsxBatchFin);
 
-                _G.evaluateJSXString(jsxPatch.join("")).then(function (oPatch) {
+                _G.evaluateJSXStringSharedSafe(jsxPatch.join("")).then(function (oPatch) {
                     try {
                         if (typeof oPatch === "string") {
                             oPatch = JSON.parse(oPatch);
