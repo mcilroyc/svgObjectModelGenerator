@@ -3,7 +3,6 @@
 /*global stringIDToTypeID, ActionDescriptor, executeAction, DialogModes, params */
 
 var switchToRGB = true;
-var currentColorMode;
 var classDocument = app.charIDToTypeID('Dcmn');
 var classProperty = app.charIDToTypeID('Prpr');
 var typeOrdinal = app.charIDToTypeID('Ordn');

@@ -3,7 +3,7 @@
 /*global app, charIDToTypeID, stringIDToTypeID, params */
 
 var ktextToClipboardStr = app.stringIDToTypeID( "textToClipboard" );
-var keyTextData = app.charIDToTypeID('TxtD');
+var keyTextData = app.charIDToTypeID("TxtD");
 
 var testStrDesc = new ActionDescriptor();
 testStrDesc.putString( keyTextData, params.clipboard);

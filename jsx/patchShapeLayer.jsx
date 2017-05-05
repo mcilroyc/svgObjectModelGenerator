@@ -2,8 +2,7 @@
 
 /*global app, charIDToTypeID, stringIDToTypeID, params */
 
-var currentLayer,
-    out = "",
+var out = "",
     sep = "";
 
 // The built-in "app.path" is broken on the Mac, so we roll our own.
@@ -55,7 +54,7 @@ try {
     
     // FIXME: Access with SmartObject ID in the future?
     
-    currentLayer = new PSLayerInfo(params.layerIndex);
+    var currentLayer = new PSLayerInfo(params.layerIndex);
     
     if (params.pathData) {
         var shapeAttr = currentLayer.getLayerAttr("layerVectorPointData");
